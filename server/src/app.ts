@@ -17,6 +17,7 @@ import testRoutes from './routes/testRoutes.js';
 import aiRoutes from './routes/aiRoutes.js';
 import resultRoutes from './routes/resultRoutes.js';
 import dashboardRoutes from './routes/dashboardRoutes.js';
+import seedRoutes from './routes/seedRoutes.js';
 
 export function createApp(): Express {
   const app = express();
@@ -68,6 +69,7 @@ export function createApp(): Express {
   app.use('/api/v1/tests', testRoutes);
   app.use('/api/v1/ai', aiRoutes);
   app.use('/api/v1/results', resultRoutes);
+  app.use('/api/v1/seed', seedRoutes);
   app.use('/api/v1/dashboard', dashboardRoutes);
 
   // ── 404 + central error handler (last) ──

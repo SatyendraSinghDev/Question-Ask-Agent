@@ -2,11 +2,18 @@ import { createApp } from './app.js';
 import { connectDB, disconnectDB } from './config/db.js';
 import { env } from './config/env.js';
 import { logger } from './utils/logger.js';
+import { seedIfEmpty } from './controllers/seedController.js';
 import './models/index.js'; // register all schemas on import
 
 async function bootstrap(): Promise<void> {
   try {
     await connectDB();
+
+    // Auto-seed an empty database (first boot in production) so the admin
+    // account + sample data exist without a manual step. Idempotent + non-fatal.
+    await seedIfEmpty().catch((err) => {
+      logger.warn({ err }, 'Auto-seed skipped/failed (non-fatal)');
+    });
 
     const app = createApp();
     const server = app.listen(env.port, () => {
