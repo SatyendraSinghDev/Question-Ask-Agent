@@ -1,12 +1,8 @@
-# Vercel only builds the frontend (client/). Ignore everything else so the
-# build never trips over the server/ workspace or root configs.
+# Only exclude the backend + non-frontend assets from the Vercel build upload.
 server/
-*.log
-.git
-.gitignore
-README.md
-DEPLOYMENT.md
-docker-compose.yml
-render.yaml
 nginx/
 brand/
+docker-compose.yml
+render.yaml
+DEPLOYMENT.md
+*.log
