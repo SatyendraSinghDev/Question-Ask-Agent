@@ -12,8 +12,9 @@ services:
     runtime: node
     plan: free
     rootDir: server
-    # Render installs deps from the workspace root, so build from there.
-    buildCommand: npm install && npm run build
+    # `--include=dev` ensures tsc/tsx are available for the build even though
+    # NODE_ENV=production is set for the running service.
+    buildCommand: npm install --include=dev && npm run build
     startCommand: npm run start
     healthCheckPath: /api/v1/health
     autoDeploy: true
