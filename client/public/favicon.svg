@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" role="img" aria-label="TestASK AI favicon">
+  <defs>
+    <linearGradient id="fg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#6366F1"/>
+      <stop offset="0.6" stop-color="#8B5CF6"/>
+      <stop offset="1" stop-color="#06B6D4"/>
+    </linearGradient>
+  </defs>
+  <rect width="32" height="32" rx="7" fill="url(#fg)"/>
+  <path d="M11 11 C11 7.5 15 6.5 17 6.5 C20.5 6.5 22.5 8.3 22.5 11
+           C22.5 13.5 20.5 14.8 18.5 16 C17.2 16.6 16.75 17.5 16.75 19"
+        fill="none" stroke="#FFFFFF" stroke-width="2.5"
+        stroke-linecap="round" stroke-linejoin="round"/>
+  <circle cx="16.75" cy="22.5" r="1.9" fill="#FACC15"/>
+  <circle cx="25" cy="24" r="1.5" fill="#FACC15"/>
+</svg>
