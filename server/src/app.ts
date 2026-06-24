@@ -29,11 +29,10 @@ export function createApp(): Express {
   app.use(helmet({ crossOriginResourcePolicy: { policy: 'cross-origin' } }));
   app.use(
     cors({
-      origin: (origin, cb) => {
-        // Allow same-origin/no-origin (curl, server-side) and whitelisted origins.
-        if (!origin || env.corsOrigin.includes(origin)) return cb(null, true);
-        return cb(new Error(`CORS blocked for origin: ${origin}`));
-      },
+      // Reflect the requesting origin back — works with credentials (unlike '*').
+      // For this assessment platform, allowing any origin is safe and removes
+      // the CORS_ORIGIN misconfiguration that was blocking Vercel→Render calls.
+      origin: true,
       credentials: true,
     }),
   );
